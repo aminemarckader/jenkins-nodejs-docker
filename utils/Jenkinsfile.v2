@@ -11,8 +11,8 @@ node {
      myTestContainer.inside {
       
        withEnv([
-            bat 'npm install --only=dev'
-            bat 'npm test'
+            sh 'npm install --only=dev'
+            sh 'npm test'
        ])
      }
    }
