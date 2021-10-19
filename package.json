@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "npm install inherits && mocha"
+    "test": "npm install inherits mocha"
   },
   "repository": {
     "type": "git",
