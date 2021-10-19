@@ -13,7 +13,7 @@ node {                                                 //Build on any node
    }
    stage('docker build/push') {
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {                         //define dockerhub registry and credentials id
-       def app = docker.build("lbounif/jenkins-docker-nodejs-demo:${commit_id}", '.').push()   //build and push
+       def app = docker.build("aminekader/jenkins-docker-nodejs-demo:${commit_id}", '.').push()   //build and push
      }
    }
 }
