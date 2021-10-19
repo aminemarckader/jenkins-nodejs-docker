@@ -13,10 +13,10 @@ node {                                                 //Build on any node
 //       echo commit_id
    }
    stage('test') {
-    nodejs(nodeJSInstallationName: 'NodeJS') {
+   
       sh 'npm install --only=dev'                    //Install only dev dependencies (mocha) for test
       sh 'npm test'
-    }
+    
    }
    stage('docker build/push') {
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {                         //define dockerhub registry and credentials id
