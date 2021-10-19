@@ -2,8 +2,10 @@
 node {                                                 //Build on any node
    def commit_id                                       //define variable commit_id
    stage('Preparation') { 
-       
-      echo 'Hello world!'${commit_id} 
+       checkout scm                                      //make git pull of repo in Jenkins
+      sh "git rev-parse --short HEAD > .git/commit-id"  //give us the commit id and put it in file commit-id inside .git folder                      
+      commit_id = readFile('.git/commit-id').trim()
+      echo "Hello world!: ${commit_id}" 
   
 //      checkout scm                                      //make git pull of repo in Jenkins
 //      sh "git rev-parse --short HEAD > .git/commit-id"  //give us the commit id and put it in file commit-id inside .git folder                      
