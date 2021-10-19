@@ -18,8 +18,8 @@ node {
         */
         'HOME=.',
       ]){
-        sh 'npm install --only=dev'
-        sh 'npm test'
+        bat 'npm install --only=dev'
+        bat 'npm test'
     }
    }
    }
