@@ -16,7 +16,7 @@ node {
         * nonsense breaks with HOME=/, e.g.:
         * EACCES: permission denied, mkdir '/.config'
         */
-        'HOME=.',
+        HOME=".",
       ]){
         bat 'npm install --only=dev'
         bat 'npm test'
