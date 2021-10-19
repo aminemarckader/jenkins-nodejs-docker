@@ -6,7 +6,7 @@ node {                                                 //Build on any node
      commit_id = readFile('.git/commit-id').trim()     //put the commit id of temporary file in the variable commit_id
    }
    stage('test') {
-     nodejs(nodeJSInstallationName: 'nodejs') {
+     nodejs(nodeJSInstallationName: 'NodeJS') {
        sh 'npm install --only=dev'                    //Install only dev dependencies (mocha) for test
        sh 'npm test'
      }
