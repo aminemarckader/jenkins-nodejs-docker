@@ -14,8 +14,11 @@ node {                                                 //Build on any node
    }
    stage('test') {
    
-      sh 'npm install --only=dev'                    //Install only dev dependencies (mocha) for test
-      sh 'npm test'
+//       sh 'npm install --only=dev'                    //Install only dev dependencies (mocha) for test
+//       sh 'npm test'
+      nodejs(nodeJSInstallationName: 'NodeJS') {
+       sh 'npm install --only=dev'                    //Install only dev dependencies (mocha) for test
+       sh 'npm test'
     
    }
    stage('docker build/push') {
