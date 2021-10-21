@@ -8,14 +8,14 @@ node {                                                 //Build on any node
       //echo "Hello world!: ${commit_id}" 
   
 //      checkout scm                                      //make git pull of repo in Jenkins
-//      sh "git rev-parse --short HEAD > .git/commit-id"  //give us the commit id and put it in file commit-id inside .git folder                      
-//      commit_id = readFile('.git/commit-id').trim()     //put the commit id of temporary file in the variable commit_id
+     sh "git rev-parse --short HEAD > .git/commit-id"  //give us the commit id and put it in file commit-id inside .git folder                      
+     commit_id = readFile('.git/commit-id').trim()     //put the commit id of temporary file in the variable commit_id
 //       echo commit_id
    }
    stage('test') {
    
-      bat 'npm install --only=dev'                    //Install only dev dependencies (mocha) for test
-      bat 'npm test'
+      sh 'npm install --only=dev'                    //Install only dev dependencies (mocha) for test
+      sh 'npm test'
     
    }
    stage('docker build/push') {
